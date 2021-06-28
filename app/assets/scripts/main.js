@@ -78,11 +78,7 @@ class Root extends React.Component {
 
               {this.state.dataReady && (
                 <Switch>
-                  <Route
-                    exact
-                    path='/explore/global'
-                    component={GlobalExplore}
-                  />
+                  <Route exact path='/' component={GlobalExplore} />
                   <Route
                     exact
                     path='/explore/:spotlightId'

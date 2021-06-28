@@ -243,11 +243,6 @@ class SpotlightAreasSingle extends React.Component {
                     this.onPanelChange('panelPrime', revealed);
                   }}
                   initialState={isLargeViewport()}
-                  headerContent={
-                    <PanelHeadline>
-                      <PanelTitle>Explore</PanelTitle>
-                    </PanelHeadline>
-                  }
                   bodyContent={
                     <>
                       <ExploreNavigation spotlights={spotlightAreas || []} />

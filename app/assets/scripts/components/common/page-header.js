@@ -447,59 +447,6 @@ class PageHeader extends React.Component {
                   </Button>
                 )}
               </PageNavHeader>
-              <PageNavBody>
-                <PrimeMenu>
-                  <li>
-                    <Button
-                      element={NavLinkFilter}
-                      to='/explore'
-                      exact
-                      variation='achromic-plain'
-                      title='View the Explore page'
-                      useIcon={
-                        isMediumDown ? null : ['chevron-down--small', 'after']
-                      }
-                    >
-                      Explore
-                    </Button>
-                    <PrimeMenuBlock>
-                      <PrimeMenuBlockTitle>Explore</PrimeMenuBlockTitle>
-                      <PrimeSubmenu aria-label='submenu'>
-                        <li>
-                          <Button
-                            element={NavLinkFilter}
-                            to='/explore/global'
-                            exact
-                            variation={
-                              isMediumDown ? 'achromic-plain' : 'primary-plain'
-                            }
-                            title='Explore the global map'
-                          >
-                            Global
-                          </Button>
-                        </li>
-                        {spotlightAreas &&
-                          spotlightAreas.map((ss) => (
-                            <li key={ss.id}>
-                              <Button
-                                element={NavLinkFilter}
-                                to={`/explore/${ss.id}`}
-                                variation={
-                                  isMediumDown
-                                    ? 'achromic-plain'
-                                    : 'primary-plain'
-                                }
-                                title={`Explore ${ss.label}`}
-                              >
-                                {ss.label}
-                              </Button>
-                            </li>
-                          ))}
-                      </PrimeSubmenu>
-                    </PrimeMenuBlock>
-                  </li>
-                </PrimeMenu>
-              </PageNavBody>
             </PageNavInner>
           </PageNav>
         </PageHeadInner>
