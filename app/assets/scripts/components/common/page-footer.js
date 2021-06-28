@@ -120,48 +120,7 @@ const InfoList = styled.dl`
 `;
 
 const PageFooter = props => {
-  return (
-    <PageFoot role='contentinfo'>
-      <PageFootInner>
-        <PageCredits>
-          <InfoList>
-            <dt>NASA official</dt>
-            <dd>
-              <Button
-                element='a'
-                href='mailto:manil.maskey@nasa.gov'
-                title='Get in touch'
-                variation='base-plain'
-                size='small'
-                useIcon='envelope'
-              >
-                Manil Maskey
-              </Button>
-            </dd>
-            <dt>Open source code</dt>
-            <dd>
-              <Button
-                element='a'
-                href='https://github.com/NASA-IMPACT/covid-dashboard'
-                title='Explore the code'
-                variation='base-plain'
-                size='small'
-                useIcon='brand-github'
-              >
-                GitHub
-              </Button>
-            </dd>
-          </InfoList>
-          <Colophon>
-            <CreditsLink href='https://earthdata.nasa.gov/' title='Visit NASA Earthdata'>
-              <strong>NASA Earthdata</strong>
-              <time dateTime='2020'>2020</time>
-            </CreditsLink>
-          </Colophon>
-        </PageCredits>
-      </PageFootInner>
-    </PageFoot>
-  );
+  return ('');
 };
 
 PageFooter.propTypes = {
