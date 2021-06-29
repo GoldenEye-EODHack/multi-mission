@@ -1,20 +1,20 @@
 {
-  "name": "multi-mission",
-  "version": "0.0.1",
-  "description": "Multi Mission application for the EO Dashboard",
+  "name": "covid-dashboard",
+  "version": "1.9.1",
+  "description": "Frontend application for the Covid Dashboard",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GoldenEye-EODHack/multi-mission.git"
+    "url": "https://github.com/NASA-IMPACT/covid-dashboard.git"
   },
   "author": {
-    "name": "Team GoldenEye",
-    "url": ""
+    "name": "Development Seed",
+    "url": "https://developmentseed.org"
   },
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/GoldenEye-EODHack/multi-mission/issues"
+    "url": "https://github.com/NASA-IMPACT/covid-dashboard/issues"
   },
-  "homepage": "https://github.com/GoldenEye-EODHack/multi-mission",
+  "homepage": "https://github.com/NASA-IMPACT/covid-dashboard",
   "scripts": {
     "postinstall": "[ -f app/assets/scripts/config/local.js ] || echo \"export default {\n  environment: 'development'\n};\" > app/assets/scripts/config/local.js",
     "serve": "NODE_ENV=development gulp serve",
