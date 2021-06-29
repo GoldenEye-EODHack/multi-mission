@@ -447,6 +447,32 @@ class PageHeader extends React.Component {
                   </Button>
                 )}
               </PageNavHeader>
+              <PageNavBody>
+                <PrimeMenu>
+                  <li>
+                    <Button
+                      element={NavLinkFilter}
+                      to='/'
+                      exact
+                      variation='achromic-plain'
+                      title='Explore Multi-Mission Data'
+                    >
+                      Explore
+                    </Button>
+                  </li>
+                  <li>
+                    <Button
+                      element={NavLinkFilter}
+                      to='/fusion'
+                      exact
+                      variation='achromic-plain'
+                      title='Fuse Multi-Mission Data'
+                    >
+                      Fusion
+                    </Button>
+                  </li>
+                </PrimeMenu>
+              </PageNavBody>
             </PageNavInner>
           </PageNav>
         </PageHeadInner>

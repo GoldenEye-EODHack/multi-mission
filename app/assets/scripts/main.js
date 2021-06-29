@@ -23,6 +23,7 @@ import LayerDataLoader from './layer-data-loader';
 import GlobalExplore from './components/global';
 import SpotlightSingle from './components/spotlight/single';
 import Sandbox from './components/sandbox';
+import Fusion from './components/fusion';
 import UhOh from './components/uhoh';
 
 // Load the spotlight areas list.
@@ -85,6 +86,7 @@ class Root extends React.Component {
                     component={SpotlightSingle}
                   />
                   <Route path='/sandbox' component={Sandbox} />
+                  <Route path='/fusion' component={Fusion} />
                   <Route path='*' component={UhOh} />
                 </Switch>
               )}
