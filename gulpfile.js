@@ -63,7 +63,7 @@ function clean () {
 
 function serve () {
   bs.init({
-    port: 9000,
+    port: 8081,
     server: {
       baseDir: ['.tmp', 'app'],
       routes: {
@@ -213,8 +213,6 @@ function collecticons () {
   return collecticonsCompile({
     dirPath: 'app/assets/icons/collecticons/',
     fontName: 'Collecticons',
-    authorName: 'Development Seed',
-    authorUrl: 'https://developmentseed.org/',
     catalogDest: 'app/assets/scripts/styles/collecticons/',
     preview: false,
     experimentalFontOnCatalog: true,

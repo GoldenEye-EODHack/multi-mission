@@ -109,7 +109,7 @@ class ExploreNavigation extends React.Component {
           <PanelBlockScroll id='explore-nav'>
             <ul>
               <li>
-                <PanelNavLink to='/explore/global' exact title='Explore global map'>
+                <PanelNavLink to='/' exact title='Explore global map'>
                   Global
                 </PanelNavLink>
               </li>

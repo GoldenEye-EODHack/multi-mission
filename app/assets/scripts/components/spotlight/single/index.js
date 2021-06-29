@@ -20,7 +20,6 @@ import DataLayersBlock from '../../common/data-layers-block';
 import Panel, { PanelHeadline, PanelTitle } from '../../common/panel';
 import MapMessage from '../../common/map-message';
 import Timeline from '../../common/timeline';
-import SecPanel from './sec-panel';
 import ExploreNavigation from '../../common/explore-navigation';
 
 import { themeVal } from '../../../styles/utils/general';
@@ -45,7 +44,6 @@ import {
 } from '../../../utils/map-explore-utils';
 import QsState from '../../../utils/qs-state';
 import media, { isLargeViewport } from '../../../styles/utils/media-queries';
-import summaries from './summaries';
 
 const ExploreCanvas = styled.div`
   display: grid;
@@ -243,11 +241,6 @@ class SpotlightAreasSingle extends React.Component {
                     this.onPanelChange('panelPrime', revealed);
                   }}
                   initialState={isLargeViewport()}
-                  headerContent={
-                    <PanelHeadline>
-                      <PanelTitle>Explore</PanelTitle>
-                    </PanelHeadline>
-                  }
                   bodyContent={
                     <>
                       <ExploreNavigation spotlights={spotlightAreas || []} />
@@ -281,21 +274,6 @@ class SpotlightAreasSingle extends React.Component {
                     onSizeChange={this.resizeMap}
                   />
                 </ExploreCarto>
-
-                <SecPanel
-                  onPanelChange={({ revealed }) => {
-                    this.resizeMap();
-                    this.onPanelChange('panelSec', revealed);
-                  }}
-                  summary={summary}
-                  indicators={indicators}
-                  indicatorGroups={indicatorGroupsData}
-                  selectedDate={
-                    activeTimeseriesLayers.length
-                      ? this.state.timelineDate
-                      : null
-                  }
-                />
               </ExploreCanvas>
             </InpageBody>
           )}
@@ -320,7 +298,6 @@ function mapStateToProps (state, props) {
   const { spotlightId } = props.match.params;
 
   return {
-    summary: summaries[spotlightId],
     mapLayers: getSpotlightLayers(spotlightId),
     spotlightList: wrapApiResult(state.spotlight.list),
     spotlight: wrapApiResult(

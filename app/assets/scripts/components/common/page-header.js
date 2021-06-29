@@ -16,9 +16,6 @@ import media from '../../styles/utils/media-queries';
 import { surfaceElevatedD } from '../../styles/skins';
 import { wrapApiResult } from '../../redux/reduxeed';
 import { headingAlt } from '../../styles/type/heading';
-import indicatorsList from '../indicators';
-import storiesList from '../stories';
-
 import Button from '../../styles/button/button';
 import { CopyField } from './copy-field';
 
@@ -76,31 +73,6 @@ const PageTitlePrimeLink = styled(Link)`
   &,
   &:visited {
     color: inherit;
-  }
-
-  &::before {
-    grid-row: 1 / span 2;
-    content: '';
-    height: 48px;
-    width: 56px;
-    background: url(${`${baseUrl}/assets/graphics/layout/app-logo-sprites.png`});
-    background-size: auto 100%;
-    background-repeat: none;
-    background-position: top right;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0.16;
-    transform: scale(2) translate(-0.5rem, -25%);
-    transform-origin: top left;
-    clip-path: polygon(0 25%, 100% 25%, 100% 75%, 0 75%);
-
-    ${media.largeUp`
-      position: static;
-      transform: none;
-      opacity: 1;
-      clip-path: none;
-    `}
   }
 
   &:hover {
@@ -431,7 +403,6 @@ class PageHeader extends React.Component {
 
   render () {
     const { spotlightList, isMediumDown } = this.props;
-
     const spotlightAreas = spotlightList.isReady() && spotlightList.getData();
     const url = window.location.toString();
 
@@ -441,14 +412,8 @@ class PageHeader extends React.Component {
           <PageHeadline>
             <PageTitle>
               <PageTitlePrimeLink to='/' title='View the welcome page'>
-                <sup>
-                  <span>NASA - </span>Earthdata
-                </sup>
                 <strong>{appTitle}</strong>
               </PageTitlePrimeLink>
-              <PageTitleSecLink to='/development' title={appVersion}>
-                Beta
-              </PageTitleSecLink>
             </PageTitle>
           </PageHeadline>
 
@@ -490,205 +455,22 @@ class PageHeader extends React.Component {
                       to='/'
                       exact
                       variation='achromic-plain'
-                      title='View the Welcome page'
-                    >
-                      Welcome
-                    </Button>
-                  </li>
-                  <li>
-                    <Button
-                      element={NavLinkFilter}
-                      to='/explore'
-                      exact
-                      variation='achromic-plain'
-                      title='View the Explore page'
-                      useIcon={
-                        isMediumDown ? null : ['chevron-down--small', 'after']
-                      }
+                      title='Explore Multi-Mission Data'
                     >
                       Explore
                     </Button>
-                    <PrimeMenuBlock>
-                      <PrimeMenuBlockTitle>Explore</PrimeMenuBlockTitle>
-                      <PrimeSubmenu aria-label='submenu'>
-                        <li>
-                          <Button
-                            element={NavLinkFilter}
-                            to='/explore/global'
-                            exact
-                            variation={
-                              isMediumDown ? 'achromic-plain' : 'primary-plain'
-                            }
-                            title='Explore the global map'
-                          >
-                            Global
-                          </Button>
-                        </li>
-                        {spotlightAreas &&
-                          spotlightAreas.map((ss) => (
-                            <li key={ss.id}>
-                              <Button
-                                element={NavLinkFilter}
-                                to={`/explore/${ss.id}`}
-                                variation={
-                                  isMediumDown
-                                    ? 'achromic-plain'
-                                    : 'primary-plain'
-                                }
-                                title={`Explore ${ss.label}`}
-                              >
-                                {ss.label}
-                              </Button>
-                            </li>
-                          ))}
-                      </PrimeSubmenu>
-                    </PrimeMenuBlock>
                   </li>
                   <li>
                     <Button
                       element={NavLinkFilter}
-                      to='/indicators'
+                      to='/fusion'
                       exact
                       variation='achromic-plain'
-                      title='View the Indicators page'
-                      useIcon={
-                        isMediumDown ? null : ['chevron-down--small', 'after']
-                      }
+                      title='Fuse Multi-Mission Data'
                     >
-                      Indicators
-                    </Button>
-                    <PrimeMenuBlock>
-                      <PrimeMenuBlockTitle>Indicators</PrimeMenuBlockTitle>
-                      <PrimeSubmenu aria-label='submenu'>
-                        {indicatorsList
-                          .filter((d) => !!d.LongForm)
-                          .map((d) => (
-                            <li key={d.id}>
-                              <Button
-                                element={NavLinkFilter}
-                                to={`/indicators/${d.id}`}
-                                variation={
-                                  isMediumDown
-                                    ? 'achromic-plain'
-                                    : 'primary-plain'
-                                }
-                                title='Learn about the indicator'
-                              >
-                                {d.name}
-                              </Button>
-                            </li>
-                          ))}
-                      </PrimeSubmenu>
-                    </PrimeMenuBlock>
-                  </li>
-                  <li>
-                    <Button
-                      element={NavLinkFilter}
-                      to='/discoveries'
-                      exact
-                      variation='achromic-plain'
-                      title='View the Discoveries page'
-                      useIcon={
-                        isMediumDown ? null : ['chevron-down--small', 'after']
-                      }
-                    >
-                      Discoveries
-                    </Button>
-                    <PrimeMenuBlock>
-                      <PrimeMenuBlockTitle>Discoveries</PrimeMenuBlockTitle>
-                      <PrimeSubmenu aria-label='submenu'>
-                        {storiesList
-                          .map((s) => (
-                            <li key={s.id}>
-                              <Button
-                                element={NavLinkFilter}
-                                to={`/discoveries/${s.id}/${s.chapters[0].id}`}
-                                variation={
-                                  isMediumDown
-                                    ? 'achromic-plain'
-                                    : 'primary-plain'
-                                }
-                                title='Learn about this story'
-                              >
-                                {s.name}
-                              </Button>
-                            </li>
-                          ))}
-                      </PrimeSubmenu>
-                    </PrimeMenuBlock>
-                  </li>
-                  <li>
-                    <Button
-                      element={NavLinkFilter}
-                      to='/about'
-                      variation='achromic-plain'
-                      title='Learn more'
-                    >
-                      About
+                      Fusion
                     </Button>
                   </li>
-                  <li>
-                    <Button
-                      variation='achromic-plain'
-                      title='Send feedback'
-                      onClick={() => {
-                        window.feedback.showForm();
-                      }}
-                    >
-                      Feedback
-                    </Button>
-                  </li>
-                  <ShareLi>
-                    <Button
-                      element='a'
-                      href='#share-options'
-                      variation='achromic-plain'
-                      title='View share options'
-                      hideText
-                      useIcon='share-2'
-                      onClick={(e) => {
-                        e.preventDefault();
-                      }}
-                    >
-                      Share
-                    </Button>
-                    <PrimeMenuBlock id='share-options'>
-                      <PrimeMenuBlockTitle>Share</PrimeMenuBlockTitle>
-                      <PrimeSubmenu aria-label='submenu'>
-                        <li>
-                          <Button
-                            element='a'
-                            variation={
-                              isMediumDown ? 'achromic-plain' : 'primary-plain'
-                            }
-                            useIcon='brand-facebook'
-                            href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
-                            title='Share on Facebook'
-                            target='_blank'
-                          >
-                            Facebook
-                          </Button>
-                        </li>
-                        <li>
-                          <Button
-                            element='a'
-                            variation={
-                              isMediumDown ? 'achromic-plain' : 'primary-plain'
-                            }
-                            useIcon='brand-twitter'
-                            href={`https://twitter.com/intent/tweet?url=${url}`}
-                            title='Share on Twitter'
-                            target='_blank'
-                          >
-                            Twitter
-                          </Button>
-                        </li>
-                      </PrimeSubmenu>
-                      <CopyBlock>
-                        <CopyField value={url} />
-                      </CopyBlock>
-                    </PrimeMenuBlock>
-                  </ShareLi>
                 </PrimeMenu>
               </PageNavBody>
             </PageNavInner>
